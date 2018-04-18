@@ -7,8 +7,10 @@ import Vuesax from "vuesax";
 import "vuesax/dist/vuesax.css"; //vuesax styles
 import iView from "iview";
 import "iview/dist/styles/iview.css";
+import locale from "iview/dist/locale/en-US";
+
+Vue.use(iView, { locale });
 Vue.use(Vuesax);
-Vue.use(iView);
 Vue.config.productionTip = false;
 
 new Vue({

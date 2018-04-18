@@ -1,0 +1,13 @@
+<div class="full-height full-width">
+    <div class="full-height flex flex-wrap flex-align-content overflow">
+        <Card :key="ticket.id" v-for="ticket in tickets">
+            <div>
+                <div></div>
+                <div>{{ticket.currentValue}}</div>
+                <div>{{ticket.buyInPrice.amount}}</div>
+                <div>{{ticket.buyInPrice.currency}}</div>
+            </div>
+            <Progress hide-info :percent="100"></Progress>
+        </Card>
+    </div>
+</div>

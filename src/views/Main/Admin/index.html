@@ -1,0 +1,12 @@
+<vs-row vs-w='12' class="full-height">
+    <vs-col vs-lg='6'>
+        <vs-input vs-label-placeholder="Title" v-model="title" />
+        <vs-input vs-label-placeholder="Buy In Price" v-model="buyInPrice" />
+        <div class="datetimepicker">
+            <DatePicker type="datetimerange" format="yyyy-MM-dd HH:mm:ss" placeholder="Select date and time" size='large'></DatePicker>
+        </div>
+        <div class="padding">
+            <vs-button vs-type="primary-filled">Create Lottery</vs-button>
+        </div>
+    </vs-col>
+</vs-row>
