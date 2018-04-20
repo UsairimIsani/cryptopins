@@ -25,4 +25,14 @@
   outline: 1px solid slategrey;
   width: 5px;
 }
+.flex-column {
+  flex-direction: column;
+}
+.link {
+  align-self: flex-start;
+  margin: 2% 0;
+  &:hover {
+    text-decoration: underline;
+  }
+}
 </style>

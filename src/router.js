@@ -1,18 +1,26 @@
 import Vue from "vue";
 import Router from "vue-router";
-import Main from "./views/Main/Main/Main.vue";
-import Admin from "./views/Main/Admin/Admin.vue";
-import Tickets from "./views/Main/Tickets/Tickets.vue";
-import Buyins from "./views/Main/Buyins.vue";
-import Profile from "./views/Main/Profile.vue";
-import Login from "./views/Login.vue";
-import Register from "./views/Register.vue";
+import Main from "./views/Main/index.vue";
+import Login from "./views/Login/index.vue";
+import Register from "./views/Register/index.vue";
+import Admin from "./views/Main/Admin/index.vue";
+import Tickets from "./views/Main/Tickets/index.vue";
+import Buyins from "./views/Main/BuyIns/index.vue";
+import Profile from "./views/Main/Profile/index.vue";
 Vue.use(Router);
 
 const router = new Router({
   routes: [
     {
-      path: "",
+      path: "/login",
+      component: Login
+    },
+    {
+      path: "/register",
+      component: Register
+    },
+    {
+      path: "/app",
       component: Main,
       children: [
         {
@@ -44,19 +52,21 @@ const router = new Router({
           }
         },
         {
-          path: "",
-          redirect: "tickets"
+          path: "*",
+          redirect: "/app/tickets"
         }
       ]
     },
     {
-      path: "login",
-      component: Login
-    },
-    {
-      path: "register",
-      component: Register
+      path: "*",
+      redirect: "/login"
     }
   ]
+});
+router.beforeEach((to, from, next) => {
+  next();
+});
+router.beforeResolve((to, from, next) => {
+  next();
 });
 export default router;

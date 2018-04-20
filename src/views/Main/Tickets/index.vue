@@ -169,8 +169,12 @@ export default {
 <style lang="scss" scoped>
 .ivu-card {
   margin: 1%;
-  height: 200px;
-  min-width: 290px;
+  /* height: 200px; */
+  /* min-width: 290px; */
+  flex-basis: 300px;
+  flex-grow: 1;
+  flex-shrink: 1;
+  max-width: 500px;
 }
 .ivu-card-body {
   padding: 16px;

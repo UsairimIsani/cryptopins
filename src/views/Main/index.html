@@ -4,7 +4,11 @@
             <Icon class="navicon-custom" type="navicon" @click.native="collapsedSider"></Icon>
         </vs-col>
         <vs-col class="padding logo" vs-type="flex" vs-justify="flex-start" vs-align="center" vs-lg="10" vs-sm="8" vs-xs="8">
-            CRYPTOPINS
+            <vs-row vs-w="12">
+                <vs-col vs-type="flex" vs-justify="flex-start" vs-align="center" vs-lg="6" vs-sm="12" vs-xs="12">
+                    CRYPTOPINS
+                </vs-col>
+            </vs-row>
         </vs-col>
         <vs-col class="padding" vs-type="flex" vs-justify="flex-end" vs-align="center" vs-lg="1" vs-sm="2" vs-xs="2">
             <img />
@@ -12,23 +16,23 @@
     </vs-row>
     <div>
         <vs-row vs-w="12">
-            <vs-col class="padding side-nav transition" vs-type="flex" vs-justify="flex-start" :vs-align="align" :vs-lg="width" vs-sm="2"
+            <!-- <vs-col class="padding side-nav transition" vs-type="flex" vs-justify="flex-start" :vs-align="align" :vs-lg="width" vs-sm="2"
                 vs-xs="2">
                 <div>
                     <router-link to="/tickets">
-                        <img class="nav-img" src="../../../assets/lottery.svg" alt="">
+                        <img class="nav-img" src="../../assets/lottery.svg" alt="">
                     </router-link>
                     <!-- <span>Hello</span> -->
-                </div>
-                <div>
-                    <router-link to="/buyins">
+            <!-- </div>
+                <div> -->
+            <!-- <router-link to="/buyins">
                         <Icon class="navicon-custom" type="navicon"></Icon>
-                    </router-link>
-                    <!-- <span>Hello</span> -->
-                </div>
-            </vs-col>
-            <vs-col class="grey-background content transition" vs-type="flex" vs-justify="flex-start" vs-align="center" :vs-lg="width ==1 ? 12 - width :12 - width"
-                :vs-sm="width ==1 ? 11 - width :12-width" :vs-xs="width ==1 ? 11- width :12 - width">
+                    </router-link> -->
+            <!-- <span>Hello</span> -->
+            <!-- </div>
+            </vs-col> -->
+            <vs-col class="grey-background content transition padding" vs-type="flex" vs-justify="center" vs-align="center" :vs-lg="12"
+                :vs-sm="12" :vs-xs="12">
                 <router-view></router-view>
             </vs-col>
         </vs-row>

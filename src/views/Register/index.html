@@ -1,0 +1,21 @@
+<vs-row vs-w="12" class="full-height padding-5 background-login" vs-type="flex" vs-justify="center" vs-align="center">
+    <vs-col class="full-height flex-column padding" vs-type="flex" vs-justify="flex-start" vs-align="center" vs-w="5" vs-xs="12"
+        vs-sm="8">
+        <h1>Welcome To CRYPTOPINS</h1>
+        <vs-input :vs-valid.sync="valid.email" class="full-width" vs-success-text="Email" vs-danger-text="You've typed a wrong email format."
+            vs-type="email" vs-label-placeholder="Email" v-model="email" />
+        <vs-input :vs-valid.sync="valid.password" class="full-width" vs-success-text="Password " vs-danger-text="Password Should Contain Numbers, Letter and Characters"
+            vs-type="password" vs-label-placeholder="Password" v-model="password" />
+        <vs-input :vs-valid.sync="valid.password" class="full-width" vs-success-text="Password " vs-danger-text="Password Should Contain Numbers, Letter and Characters"
+            vs-type="password" vs-label-placeholder="Retype Your Password" v-model="rePassword" />
+        <vs-checkbox vs-color="success" v-model="signIn" class="remeber-me">Sign Me In</vs-checkbox>
+        <vs-row vs-type="flex" vs-justify="space-evenly" vs-align="center" vs-w="12">
+            <vs-col vs-type="flex" vs-justify="center" vs-align="center" vs-w="12">
+                <vs-button vs-type="success-filled" class="full-width">Register</vs-button>
+            </vs-col>
+        </vs-row>
+        <div class="link">
+            <router-link to="/login">Already a member.Log In.</router-link>
+        </div>
+    </vs-col>
+</vs-row>
