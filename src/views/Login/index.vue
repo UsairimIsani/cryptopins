@@ -1,6 +1,6 @@
-<template src="./index.html">
-</template>
 <script >
+import { mapActions } from "vuex";
+import ACTIONS from "../../store/ACTION_CONSTANTS";
 export default {
   data() {
     return {
@@ -14,15 +14,27 @@ export default {
     };
   },
   methods: {
+    ...mapActions([ACTIONS.LOGIN]),
     login() {
-      if (
-        this.email.toString() === "admin@admin.com" &&
-        this.password.toString() === "!123asdF"
-      ) {
-        this.$router.replace({ path: "/app/tickets" });
-      } else {
-        this.$router.push({ path: "/login" });
-      }
+      // if (this.valid.email && this.valid.password) {
+      let user = {
+        username: this.email,
+        password: this.password
+      };
+      this.password = "";
+      this.email = "";
+      this.LOGIN(user)
+        .then(res => {
+          console.log("RES", res);
+          return res.json();
+        })
+        .then(res => {
+          console.log("RES", res);
+        })
+        .catch(err => {
+          console.log("RES", err);
+        });
+      // }
     }
   }
 };
@@ -38,3 +50,5 @@ export default {
 .background-login {
 }
 </style>
+<template src="./index.html">
+</template>

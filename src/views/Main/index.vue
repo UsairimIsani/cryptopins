@@ -1,11 +1,20 @@
 <template src="./index.html">
 
 </template>
-<script src="./index.js">
+<script >
+export default {
+  data() {
+    return {};
+  },
+  methods: {}
+};
 </script>
 <style lang="scss" scoped >
 .nav-container {
   border: 1px solid #dedede;
+  height: 9vh;
+  display: flex;
+  align-items: center;
 }
 .padding {
   padding: 1%;

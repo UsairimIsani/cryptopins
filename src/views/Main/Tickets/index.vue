@@ -2,167 +2,25 @@
   
 </template>
 <script>
+import { mapState, mapActions } from "vuex";
 export default {
   data() {
     return {
-      tickets: [
-        {
-          id: "12312",
-          currentValue: "Hello",
-          buyInPrice: {
-            amount: 23,
-            currency: "BTC"
-          },
-          bidders: [
-            {
-              name: "Usairim Isani",
-              id: "1"
-            }
-          ],
-          buyIns: 2
-        },
-        {
-          id: "12123",
-          currentValue: "Hello",
-          buyInPrice: {
-            amount: 23,
-            currency: "BTC"
-          },
-          bidders: [
-            {
-              name: "Usairim Isani",
-              id: "1"
-            }
-          ],
-          buyIns: 2
-        },
-        {
-          id: "13123",
-          currentValue: "Hello",
-          buyInPrice: {
-            amount: 23,
-            currency: "BTC"
-          },
-          bidders: [
-            {
-              name: "Usairim Isani",
-              id: "1"
-            }
-          ],
-          buyIns: 2
-        },
-        {
-          id: "13asd123",
-          currentValue: "Hello",
-          buyInPrice: {
-            amount: 23,
-            currency: "BTC"
-          },
-          bidders: [
-            {
-              name: "Usairim Isani",
-              id: "1"
-            }
-          ],
-          buyIns: 2
-        },
-        {
-          id: "13asd123",
-          currentValue: "Hello",
-          buyInPrice: {
-            amount: 23,
-            currency: "BTC"
-          },
-          bidders: [
-            {
-              name: "Usairim Isani",
-              id: "1"
-            }
-          ],
-          buyIns: 2
-        },
-        {
-          id: "13asd123",
-          currentValue: "Hello",
-          buyInPrice: {
-            amount: 23,
-            currency: "BTC"
-          },
-          bidders: [
-            {
-              name: "Usairim Isani",
-              id: "1"
-            }
-          ],
-          buyIns: 2
-        },
-        {
-          id: "13asd123",
-          currentValue: "Hello",
-          buyInPrice: {
-            amount: 23,
-            currency: "BTC"
-          },
-          bidders: [
-            {
-              name: "Usairim Isani",
-              id: "1"
-            }
-          ],
-          buyIns: 2
-        },
-        {
-          id: "13asd123",
-          currentValue: "Hello",
-          buyInPrice: {
-            amount: 23,
-            currency: "BTC"
-          },
-          bidders: [
-            {
-              name: "Usairim Isani",
-              id: "1"
-            }
-          ],
-          buyIns: 2
-        },
-        {
-          id: "13asd123",
-          currentValue: "Hello",
-          buyInPrice: {
-            amount: 23,
-            currency: "BTC"
-          },
-          bidders: [
-            {
-              name: "Usairim Isani",
-              id: "1"
-            }
-          ],
-          buyIns: 2
-        },
-        {
-          id: "13asd123",
-          currentValue: "Hello",
-          buyInPrice: {
-            amount: 23,
-            currency: "BTC"
-          },
-          bidders: [
-            {
-              name: "Usairim Isani",
-              id: "1"
-            }
-          ],
-          buyIns: 2
-        }
-      ]
+      // ...mapState(["tickets"])
     };
+  },
+  computed: {
+    ...mapState({
+      tickets: state => {
+        return state.Tickets.tickets;
+      }
+    })
   },
   methods: {
     log(something) {
       console.log(something.toString(), something);
-    }
+    },
+    ...mapActions(["getTickets"])
   }
 };
 </script>

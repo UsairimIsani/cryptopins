@@ -35,4 +35,13 @@
     text-decoration: underline;
   }
 }
+.router-link {
+  color: #000;
+  padding: 2%;
+  transition: all 0.2s ease-in;
+}
+
+.router-link-active {
+  border-bottom: 5px solid #000;
+}
 </style>
