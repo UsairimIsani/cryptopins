@@ -1,5 +1,6 @@
 <template src="./index.html">
 
+
 </template>
 <script >
 export default {
@@ -57,5 +58,20 @@ export default {
 }
 .nav-img {
   height: 3vh;
+}
+.profile-img {
+  width: 5vh;
+  border-radius: 50%;
+}
+.setting-select {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  img {
+    width: 16px;
+    height: 16px;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
 }
 </style>

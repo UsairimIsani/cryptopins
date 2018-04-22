@@ -4,15 +4,18 @@ headers.append(
   "Authentication",
   localStorage.getItem("token") || "NO TOKEN AVAILABLE"
 );
+headers.append("Accept", "application/json, text/plain, */*");
+headers.append("Content-Type", "application/json");
+
 export default {
   get(url) {
-    return fetch(`${apiContants.api}/${url}`);
+    return fetch(`${apiContants.api}/${url}`, { headers });
   },
   post(url, data) {
     return fetch(`${apiContants.api}/${url}`, {
       headers,
       method: "POST",
-      body: data
+      body: JSON.stringify(data)
     });
   },
   put(url, data) {
@@ -40,3 +43,7 @@ export default {
     return xhr;
   }
 };
+export function setTokenInLocalStorage(data) {
+  localStorage.setItem("user", data.user._id);
+  localStorage.setItem("token", data.user.token);
+}

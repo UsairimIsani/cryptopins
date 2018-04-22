@@ -15,7 +15,15 @@
             </vs-row>
         </vs-col>
         <vs-col class="full-height" vs-type="flex" vs-justify="center" vs-align="center" vs-lg="1" vs-sm="2" vs-xs="2">
-            <img src="../../assets/logo.png" style="width: 5vh;" />
+            <Poptip title="USerNAme" :content="someVue" placement="bottom-end">
+                <img class="profile-img" src="../../assets/logo.png" style="width: 5vh;" />
+                <div slot="content">
+                    <div class="setting-select">
+                        <img src="../../assets/logo.png" alt="">
+                        <span>Settings</span>
+                    </div>
+                </div>
+            </Poptip>
         </vs-col>
     </vs-row>
     <div>

@@ -16,21 +16,26 @@ export default {
     };
   },
   methods: {
-    ...mapActions({
-      ...[ACTIONS.REGISTER]
-    }),
+    ...mapActions([ACTIONS.REGISTER]),
     register() {
       if (
         this.valid.email &&
         this.valid.password &&
         this.valid.rePassword &&
-        this.password === this.rePassword
+        this.password.toString() === this.rePassword.toString()
       ) {
         let user = {
           username: this.email,
           password: this.password
         };
-        this.REGISTER(user);
+
+        this.REGISTER({
+          user,
+          signIn: this.signIn
+        });
+        this.email = "";
+        this.password = "";
+        this.rePassword = "";
       }
     }
   }

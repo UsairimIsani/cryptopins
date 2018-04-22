@@ -13,7 +13,7 @@ Vue.use(iView, { locale });
 Vue.use(Vuesax);
 Vue.config.productionTip = false;
 
-new Vue({
+export default new Vue({
   router,
   store,
   render: h => h(App)
