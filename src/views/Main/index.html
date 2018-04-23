@@ -15,12 +15,17 @@
             </vs-row>
         </vs-col>
         <vs-col class="full-height" vs-type="flex" vs-justify="center" vs-align="center" vs-lg="1" vs-sm="2" vs-xs="2">
-            <Poptip title="USerNAme" :content="someVue" placement="bottom-end">
-                <img class="profile-img" src="../../assets/logo.png" style="width: 5vh;" />
+            <Poptip title="" content="content" placement="bottom-end">
+                <img v-if="user.img" class="profile-img" src="../../assets/logo.png" style="width: 5vh;" />
+                <Icon v-if="!user.img" class="profile-img" type="person"></Icon>
                 <div slot="content">
-                    <div class="setting-select">
-                        <img src="../../assets/logo.png" alt="">
+                    <div class="profile-select" @click="navigateTo('settings')">
+                        <Icon type="settings"></Icon>
                         <span>Settings</span>
+                    </div>
+                    <div class="profile-select" @click="logout">
+                        <Icon type="log-out"></Icon>
+                        <span>Logout</span>
                     </div>
                 </div>
             </Poptip>

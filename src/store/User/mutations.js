@@ -1,13 +1,10 @@
 import ACTIONS from "../ACTION_CONSTANTS";
-
 import router from "../../router";
-import { setTokenInLocalStorage } from "../../asyncUtil/cryptopins";
 export default {
   [ACTIONS.LOGIN](state, payload) {
     state.user = payload.data.user;
     state.user.token = payload.data.token;
     state.user.verified = true;
-    setTokenInLocalStorage(payload.data);
     router.push("/app/tickets");
   },
   [ACTIONS.LOGIN_ERR](state, payload) {
@@ -18,7 +15,6 @@ export default {
   [ACTIONS.REGISTER](state, payload) {
     state.user = payload.data.user;
     state.user.token = payload.data.token;
-    setTokenInLocalStorage(payload.data);
     state.user.verified = true;
 
     router.push("/app/tickets");

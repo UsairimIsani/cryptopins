@@ -3,11 +3,25 @@
 
 </template>
 <script >
+import { mapState } from "vuex";
 export default {
   data() {
     return {};
   },
-  methods: {}
+  methods: {
+    navigateTo(destination) {
+      this.$router.push(destination);
+    },
+    logout() {
+      localStorage.clear();
+      this.$router.replace("/login");
+    }
+  },
+  computed: {
+    ...mapState({
+      user: state => state.User.user
+    })
+  }
 };
 </script>
 <style lang="scss" scoped >
@@ -59,19 +73,25 @@ export default {
 .nav-img {
   height: 3vh;
 }
-.profile-img {
+img[class="profile-img"] {
   width: 5vh;
   border-radius: 50%;
 }
-.setting-select {
+.profile-img {
+  font-size: 5vh;
+  border-radius: 50%;
+}
+.profile-select {
   cursor: pointer;
   display: flex;
+  margin: 5% 0 5% 0;
   align-items: center;
-  img {
-    width: 16px;
-    height: 16px;
-    margin-left: 5px;
-    margin-right: 5px;
+  i {
+    font-size: 3vh;
+  }
+  span {
+    font-size: 2vh;
+    margin: 0 9%;
   }
 }
 </style>

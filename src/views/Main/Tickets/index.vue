@@ -3,7 +3,11 @@
 </template>
 <script>
 import { mapState, mapActions } from "vuex";
+import Ticket from "../../../components/Ticket";
 export default {
+  components: {
+    Ticket
+  },
   data() {
     return {
       // ...mapState(["tickets"])
@@ -25,23 +29,6 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-.ivu-card {
-  margin: 1%;
-  /* height: 200px; */
-  /* min-width: 290px; */
-  flex-basis: 300px;
-  flex-grow: 1;
-  flex-shrink: 1;
-  max-width: 500px;
-}
-.ivu-card-body {
-  padding: 16px;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
 .flex-wrap {
   flex-wrap: wrap;
 }
