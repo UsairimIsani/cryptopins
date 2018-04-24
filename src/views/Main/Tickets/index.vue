@@ -4,6 +4,7 @@
 <script>
 import { mapState, mapActions } from "vuex";
 import Ticket from "../../../components/Ticket";
+import ACTION_CONSTANTS from "../../../store/ACTION_CONSTANTS";
 export default {
   components: {
     Ticket
@@ -24,7 +25,10 @@ export default {
     log(something) {
       console.log(something.toString(), something);
     },
-    ...mapActions(["getTickets"])
+    ...mapActions([ACTION_CONSTANTS.GET_ALL_TICKETS])
+  },
+  created() {
+    this.GET_ALL_TICKETS();
   }
 };
 </script>

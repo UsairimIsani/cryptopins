@@ -1,12 +1,14 @@
-<vs-row vs-w='12' class="full-height">
+<vs-row vs-w='12' class="full-height" vs-type="flex" vs-justify="center" vs-align="flex-start">
     <vs-col vs-lg='6'>
-        <vs-input vs-label-placeholder="Title" v-model="title" />
-        <vs-input vs-label-placeholder="Buy In Price" v-model="buyInPrice" />
+        <vs-input vs-label-placeholder="Title" v-model="ticket.title" />
+        <vs-input vs-label-placeholder="Buy In Price in MICRO" vs-type="number" v-model="ticket.buyInPrice.amount" />
+        <vs-select class="currency-select" v-model="ticket.buyInPrice.currency" :options="options" @change="log"></vs-select>
         <div class="datetimepicker">
-            <DatePicker type="datetimerange" format="yyyy-MM-dd HH:mm:ss" placeholder="Select date and time" size='large'></DatePicker>
+            <DatePicker type="datetime" format="yyyy-MM-dd HH:mm:ss" placeholder="Ticket Expiry Date and Time" size="large" v-model="ticket.expiry"></DatePicker>
         </div>
+        <Ticket :ticket="ticket"></Ticket>
         <div class="padding">
-            <vs-button vs-type="primary-filled">Create Lottery</vs-button>
+            <vs-button vs-type="primary-filled" @click="createTicket">Create Ticket</vs-button>
         </div>
     </vs-col>
 </vs-row>

@@ -32,7 +32,7 @@ export default {
     },
     {
       id: "13123",
-      currentValue: "Hello",
+      currentValue: 34,
       buyInPrice: {
         amount: 23,
         currency: "BTC"
@@ -43,7 +43,7 @@ export default {
           id: "1"
         }
       ],
-      buyIns: 2
+      buyIns: [{}, {}]
     }
   ]
 };

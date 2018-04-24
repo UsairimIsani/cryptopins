@@ -19,6 +19,10 @@
                 <img v-if="user.img" class="profile-img" src="../../assets/logo.png" style="width: 5vh;" />
                 <Icon v-if="!user.img" class="profile-img" type="person"></Icon>
                 <div slot="content">
+                    <div class="profile-select" @click="navigateTo('admin')">
+                        <Icon type="lock-combination"></Icon>
+                        <span>Admin</span>
+                    </div>
                     <div class="profile-select" @click="navigateTo('settings')">
                         <Icon type="settings"></Icon>
                         <span>Settings</span>

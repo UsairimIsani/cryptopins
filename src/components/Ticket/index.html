@@ -1,4 +1,4 @@
-<Card :key="ticket.id" class="crypto-ticket">
+<!-- <Card :key="ticket.id" class="crypto-ticket">
   <div>
     <div></div>
     <div>{{ticket.currentValue}}</div>
@@ -6,4 +6,41 @@
     <div>{{ticket.buyInPrice.currency}}</div>
   </div>
   <Progress hide-info :percent="100"></Progress>
-</Card>
+</Card> -->
+<vs-button vs-type="success-filled" class="ticket">
+  <div class="full-height ticket-container">
+    <div class="ticket-title">
+      <div>
+        <h1>{{ticket.title || "Ticket"}}</h1>
+      </div>
+      <div>
+        <vs-button vs-type="primary-filled" v-tooltip="{text:'Buy In to this Ticket'}">
+          <Icon type="social-usd"></Icon>
+          : {{ticket.buyInPrice.amount}} {{ticket.buyInPrice.currency}}
+        </vs-button>
+      </div>
+    </div>
+    <div class="full-height ticket-body">
+      <div class="current-value">{{ticket.currentValue}} {{ticket.buyInPrice.currency}}
+      </div>
+      <!-- <div>{{ticket.buyInPrice.amount}}</div>
+      <div>{{ticket.buyInPrice.currency}}</div> -->
+      <div class="ticket-footer">
+        <div class="bidders">
+          <img src="../../assets/crowd.svg" alt="">
+          <span>
+            {{ticket.buyInPrice.bidders ? ticket.buyInPrice.bidders.length : 0 }}
+          </span>
+        </div>
+        <div class="bidders">
+          <img src="../../assets/buyins.svg" alt="">
+          <span>
+            {{ticket.buyInPrice.buyIns ? ticket.buyInPrice.buyIns.length : 0 }}
+          </span>
+        </div>
+        <div class="timer">{{timer}}</div>
+      </div>
+    </div>
+  </div>
+  <Progress hide-info :percent="79"></Progress>
+</vs-button>
