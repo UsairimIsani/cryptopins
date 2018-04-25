@@ -2,7 +2,8 @@ export default {
   user: {
     username: "",
     token: "",
-    verified: false
+    verified: false,
+    admin: false
   },
   err: false,
   errObject: {}

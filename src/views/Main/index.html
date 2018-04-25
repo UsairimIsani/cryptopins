@@ -12,7 +12,7 @@
         <vs-col class="logo full-height" vs-type="flex" vs-justify="flex-start" vs-align="center" vs-lg="10" vs-sm="8" vs-xs="8">
             <vs-row vs-w="12" class="full-height">
                 <vs-col class="full-height" vs-type="flex" vs-justify="flex-start" vs-align="center" vs-lg="6" vs-sm="12" vs-xs="12">
-                    CRYPTOPINS
+                    <img src="../../assets/logo.png" alt="" class="full-height">
                 </vs-col>
                 <vs-col class="full-height" vs-type="flex" vs-justify="space-evenly" vs-align="center" vs-lg="6" vs-sm="0" vs-xs="0">
                     <router-link class="router-link" to="/app/tickets">Tickets</router-link>
@@ -25,7 +25,7 @@
                 <img v-if="user.img" class="profile-img" src="../../assets/logo.png" style="width: 5vh;" />
                 <Icon v-if="!user.img" class="profile-img" type="person"></Icon>
                 <div slot="content">
-                    <div class="profile-select" @click="navigateTo('admin')">
+                    <div v-if="user.user.admin" class="profile-select" @click="navigateTo('admin')">
                         <Icon type="lock-combination"></Icon>
                         <span>Admin</span>
                     </div>

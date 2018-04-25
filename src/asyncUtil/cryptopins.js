@@ -1,4 +1,6 @@
 import apiContants from "./apiContants";
+import store from "../store";
+import Vue from "vue";
 export function setHeaders() {
   let headers = new Headers();
   headers.append(
@@ -66,6 +68,7 @@ export function Authenticate() {
     cryptopins.get("user/me").then(res => {
       res.json().then(me => {
         if (me.success) {
+          Vue.set(store.state.User, "user", me.data);
           resolve(me);
         } else {
           reject(me);

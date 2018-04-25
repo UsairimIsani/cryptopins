@@ -45,8 +45,20 @@ export default {
     },
     ...mapActions([ACTIONS.CREATE_TICKET]),
     createTicket() {
+      this.ticket.buyInPrice.currency = this.options[
+        this.ticket.buyInPrice.currency
+      ].text;
       console.log("TICKET", this.ticket);
       this.CREATE_TICKET({ ticket: this.ticket });
+      this.ticket = {
+        title: "",
+        buyInPrice: {
+          amount: "",
+          currency: ""
+        },
+        currentValue: 0,
+        duration: []
+      };
     }
   }
 };

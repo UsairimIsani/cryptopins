@@ -11,13 +11,10 @@
   <div class="full-height ticket-container">
     <div class="ticket-title">
       <div>
-        <h1>{{ticket.title || "Ticket"}}</h1>
+        <div class="timer">{{timer}}</div>
       </div>
       <div>
-        <vs-button vs-type="primary-filled" v-tooltip="{text:'Buy In to this Ticket'}">
-          <Icon type="social-usd"></Icon>
-          : {{ticket.buyInPrice.amount}} {{ticket.buyInPrice.currency}}
-        </vs-button>
+
       </div>
     </div>
     <div class="full-height ticket-body">
@@ -38,7 +35,13 @@
             {{ticket.buyInPrice.buyIns ? ticket.buyInPrice.buyIns.length : 0 }}
           </span>
         </div>
-        <div class="timer">{{timer}}</div>
+        <div>
+
+          <vs-button vs-type="primary-filled" v-tooltip="{text:'Buy In to this Ticket'}">
+            <Icon type="social-usd"></Icon>
+            : {{ticket.buyInPrice.amount}} {{ticket.buyInPrice.currency}}
+          </vs-button>
+        </div>
       </div>
     </div>
   </div>

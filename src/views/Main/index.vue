@@ -27,6 +27,9 @@ export default {
     ...mapState({
       user: state => state.User.user
     })
+  },
+  created() {
+    console.log(this.user.user.admin);
   }
 };
 </script>

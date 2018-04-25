@@ -25,7 +25,11 @@ export default {
     };
   },
   created() {
-    if (this.ticket.duration.length > 0) {
+    if (
+      this.ticket &&
+      this.ticket.duration &&
+      this.ticket.duration.length > 0
+    ) {
       this.inteval = setInterval(() => {
         let now = new Date().getTime();
         let expiry = new Date(this.ticket.duration[1]).getTime();
@@ -46,8 +50,6 @@ export default {
         let b = moment(this.ticket.duration[1]);
         let aStart = b.diff(a);
         let aNow = c.diff(a);
-        let newdays = c.diff(a, "days");
-        console.log("days", newdays);
         this.progress =
           Math.floor(aNow / aStart * 100) > 100
             ? 100
@@ -89,7 +91,7 @@ export default {
   -webkit-font-smoothing: antialiased;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   height: 200px;
-  flex-basis: 300px;
+  flex-basis: 250px;
   flex-grow: 1;
   flex-shrink: 1;
   max-width: 500px;
