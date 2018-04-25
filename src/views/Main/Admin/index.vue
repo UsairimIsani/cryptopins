@@ -48,7 +48,7 @@ export default {
       this.ticket.buyInPrice.currency = this.options[
         this.ticket.buyInPrice.currency
       ].text;
-      console.log("TICKET", this.ticket);
+      this.ticket.buyInPrice.amount = this.ticket.buyInPrice.amount / 1000000;
       this.CREATE_TICKET({ ticket: this.ticket });
       this.ticket = {
         title: "",

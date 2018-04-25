@@ -135,6 +135,6 @@ export default {
   }
 }
 .current-value {
-  font-size: 5em;
+  font-size: 3em;
 }
 </style>
