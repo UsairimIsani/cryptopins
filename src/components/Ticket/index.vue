@@ -2,6 +2,7 @@
 
 </template>
 <script>
+import moment from "moment";
 export default {
   props: {
     ticket: {
@@ -13,19 +14,49 @@ export default {
       },
       bidders: [String],
       buyIns: Number,
-      expiry: Date
+      duration: [Date]
     }
   },
   data() {
     return {
-      timer: 0
+      timer: 0,
+      progress: 0,
+      inteval: ""
     };
   },
   created() {
-    console.log("Expiry");
-    setInterval(() => {
-      this.timer++;
-    }, 1000);
+    if (this.ticket.duration.length > 0) {
+      this.inteval = setInterval(() => {
+        let now = new Date().getTime();
+        let expiry = new Date(this.ticket.duration[1]).getTime();
+        let distance = expiry - now;
+        let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        let hours = Math.floor(
+          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+        let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        if (days < 0) {
+          this.timer = `Ticket Expired`;
+        } else {
+          this.timer = `${days} D ${hours} H ${minutes} M ${seconds} S`;
+        }
+        let a = moment(this.ticket.duration[0]);
+        let c = moment();
+        let b = moment(this.ticket.duration[1]);
+        let aStart = b.diff(a);
+        let aNow = c.diff(a);
+        let newdays = c.diff(a, "days");
+        console.log("days", newdays);
+        this.progress =
+          Math.floor(aNow / aStart * 100) > 100
+            ? 100
+            : Math.floor(aNow / aStart * 100);
+      }, 1000);
+    }
+  },
+  destroyed() {
+    clearInterval(this.interval);
   }
 };
 </script>
@@ -86,7 +117,7 @@ export default {
   justify-content: space-between;
 }
 .timer {
-  font-size: 26px;
+  font-size: 16px;
   text-align: right;
 }
 .bidders {

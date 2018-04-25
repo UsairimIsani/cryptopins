@@ -35,7 +35,7 @@ export default {
           currency: ""
         },
         currentValue: 0,
-        expiry: ""
+        duration: []
       }
     };
   },

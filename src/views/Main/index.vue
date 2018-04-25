@@ -15,6 +15,12 @@ export default {
     logout() {
       localStorage.clear();
       this.$router.replace("/login");
+    },
+    closeNav() {
+      this.$refs.sidenav.style.width = 0;
+    },
+    openNav() {
+      this.$refs.sidenav.style.width = "400px";
     }
   },
   computed: {
@@ -93,5 +99,34 @@ img[class="profile-img"] {
     font-size: 2vh;
     margin: 0 9%;
   }
+}
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 0px;
+  a {
+    padding: 8px 8px 8px 24px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+  }
+  a:hover {
+    color: #f1f1f1;
+  }
+  .cross {
+    font-size: 5vh;
+  }
+}
+.no-border {
+  border: 0;
 }
 </style>

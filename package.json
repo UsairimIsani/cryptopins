@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "iview": "^2.13.0",
+    "moment": "^2.22.1",
     "postcss-import": "^11.1.0",
     "postcss-url": "^7.3.2",
     "register-service-worker": "^1.0.0",

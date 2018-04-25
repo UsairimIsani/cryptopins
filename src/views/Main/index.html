@@ -1,7 +1,13 @@
 <div>
+    <div id="mySidenav" class="sidenav" ref="sidenav">
+        <a href="javascript:void(0)" class="cross" @click="closeNav">&times; </a>
+        <router-link to="/app/tickets" class="no-border">Tickets</router-link>
+        <router-link to="/app/buyins" class="no-border">Buyins</router-link>
+
+    </div>
     <vs-row vs-w="12" class="nav-container full-height">
         <vs-col class="full-height" vs-type="flex" vs-justify="flex-start" vs-align="center" vs-lg="1" vs-sm="2" vs-xs="2" vs-w=''>
-            <Icon class="navicon-custom" type="navicon" @click.native="collapsedSider"></Icon>
+            <Icon class="navicon-custom" type="navicon" @click.native="openNav"></Icon>
         </vs-col>
         <vs-col class="logo full-height" vs-type="flex" vs-justify="flex-start" vs-align="center" vs-lg="10" vs-sm="8" vs-xs="8">
             <vs-row vs-w="12" class="full-height">
