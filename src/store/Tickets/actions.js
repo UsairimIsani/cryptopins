@@ -23,8 +23,6 @@ export default {
       });
     });
   }
-  // [ACTIONS.CREATE_TICKET_ERR](err) {
-  //   console.log(err);
-  // },
+
   // [ACTIONS.UPDATE_TICKET](ctx, payload) {}
 };

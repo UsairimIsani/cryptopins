@@ -32,7 +32,7 @@ export default {
         title: "",
         buyInPrice: {
           amount: "",
-          currency: ""
+          currency: "USD"
         },
         currentValue: 0,
         duration: []
@@ -45,16 +45,13 @@ export default {
     },
     ...mapActions([ACTIONS.CREATE_TICKET]),
     createTicket() {
-      this.ticket.buyInPrice.currency = this.options[
-        this.ticket.buyInPrice.currency
-      ].text;
       this.ticket.buyInPrice.amount = this.ticket.buyInPrice.amount / 1000000;
       this.CREATE_TICKET({ ticket: this.ticket });
       this.ticket = {
         title: "",
         buyInPrice: {
           amount: "",
-          currency: ""
+          currency: "USD"
         },
         currentValue: 0,
         duration: []

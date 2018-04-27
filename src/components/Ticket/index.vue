@@ -3,6 +3,8 @@
 </template>
 <script>
 import moment from "moment";
+import { mapActions } from "vuex";
+import ACTION_CONSTANTS from "../../store/ACTION_CONSTANTS";
 export default {
   props: {
     ticket: {
@@ -21,8 +23,46 @@ export default {
     return {
       timer: 0,
       progress: 0,
-      inteval: ""
+      inteval: "",
+      ...mapActions([ACTION_CONSTANTS.CREATE_CHARGE])
     };
+  },
+  methods: {
+    confirm() {
+      if (this.progress < 100) {
+        this.$vs.confirm({
+          title: "Are You Sure you want to Buy into this ticket",
+          text: `The ticket will Expire In ${this.timer}`,
+          color: "success",
+          confirm: () => {
+            this.$vs.notify({
+              title: "Processing Your Requst",
+              text: "You'll be provided a deposit url shortly",
+              color: "success",
+              position: "top-right"
+            });
+            this.CREATE_CHARGE({
+              ticketId: this.ticket._id
+            });
+          },
+          cancel: () => {
+            this.$vs.notify({
+              title: "We Understand",
+              text: "Try another ticket to test your Luck!",
+              color: "dark",
+              position: "top-right"
+            });
+          }
+        });
+      } else {
+        this.$vs.notify({
+          title: `Can't Buy into this ticket`,
+          text: `This ticket has expired`,
+          color: "danger",
+          position: "top-right"
+        });
+      }
+    }
   },
   created() {
     if (

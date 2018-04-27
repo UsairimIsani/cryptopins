@@ -37,7 +37,7 @@
         </div>
         <div>
 
-          <vs-button vs-type="primary-filled" v-tooltip="{text:'Buy In to this Ticket'}">
+          <vs-button vs-type="primary-filled" v-tooltip="{text:'Buy In to this Ticket'}" @click="confirm">
             <Icon type="social-usd"></Icon>
             : {{ticket.buyInPrice.amount}} {{ticket.buyInPrice.currency}}
           </vs-button>
