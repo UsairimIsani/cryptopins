@@ -1,5 +1,5 @@
 import ACTIONS from "../ACTION_CONSTANTS";
-import cryptopins, { setTokenInLocalStorage } from "../../asyncUtil/cryptopins";
+import cryptopins from "../../asyncUtil/cryptopins";
 import router from "../../router";
 import vue from "../../main";
 export default {
@@ -8,10 +8,10 @@ export default {
       .post(`user/login`, payload.user)
       .then(res => {
         res.json().then(userData => {
-          if (payload.rememberMe) {
-            setTokenInLocalStorage(userData);
-          }
-          ctx.commit(ACTIONS.LOGIN, userData);
+          ctx.commit(ACTIONS.LOGIN, {
+            userData,
+            rememberMe: payload.rememberMe
+          });
           vue.$vs.notify({
             title: "Success",
             text: "You have Successfully Logged In.",
@@ -22,6 +22,12 @@ export default {
       })
       .catch(err => {
         ctx.commit(ACTIONS.LOGIN_ERR, err);
+        vue.$vs.notify({
+          title: "Login Failure",
+          text: err.message,
+          color: "danger",
+          position: "top-right"
+        });
       });
   },
   [ACTIONS.REGISTER](ctx, payload) {

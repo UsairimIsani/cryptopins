@@ -1,8 +1,8 @@
 <vs-row vs-w='12' class="full-height" vs-type="flex" vs-justify="center" vs-align="flex-start">
     <vs-col vs-lg='6'>
         <vs-input vs-label-placeholder="Title" v-model="ticket.title" />
-        <vs-input vs-label-placeholder="Buy In Price in MICRO" vs-type="number" v-model="ticket.buyInPrice.amount" />
-        <vs-select class="currency-select" v-model="ticket.buyInPrice.currency" :options="options" @change="log"></vs-select>
+        <vs-input vs-label-placeholder="Buy In Price in Micro USD" vs-type="number" v-model="ticket.buyInPrice.amount" />
+
         <div class="datetimepicker">
             <DatePicker type="datetimerange" format="yyyy-MM-dd HH:mm:ss" placeholder="Ticket Expiry Date and Time" size="large" v-model="ticket.duration"></DatePicker>
             <!-- <DatePicker type="datetime" format="yyyy-MM-dd HH:mm:ss" placeholder="Ticket Expiry Date and Time" size="large" v-model="ticket.expiry"></DatePicker> -->

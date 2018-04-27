@@ -3,10 +3,11 @@ import store from "../store";
 import Vue from "vue";
 export function setHeaders() {
   let headers = new Headers();
-  headers.append(
-    "x-access-token",
-    JSON.parse(localStorage.getItem("token")) || "NO TOKEN AVAILABLE"
-  );
+  if (localStorage.getItem("rememberMe")) {
+    headers.append("x-access-token", getTokenInLocalStorage().token);
+  } else {
+    headers.append("x-access-token", store.state.User.user.token);
+  }
   headers.append("Accept", "application/json, text/plain, */*");
   headers.append("Content-Type", "application/json");
   return headers;

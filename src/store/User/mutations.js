@@ -1,10 +1,15 @@
 import ACTIONS from "../ACTION_CONSTANTS";
 import router from "../../router";
+import { setTokenInLocalStorage } from "../../asyncUtil/cryptopins";
 export default {
   [ACTIONS.LOGIN](state, payload) {
-    state.user = payload.data.user;
-    state.user.token = payload.data.token;
+    state.user = payload.userData.data;
     state.user.verified = true;
+    console.log(payload.rememberMe);
+    if (payload.rememberMe) {
+      localStorage.setItem("rememberMe", true);
+      setTokenInLocalStorage(payload.userData);
+    }
     router.push("/app/tickets");
   },
   [ACTIONS.LOGIN_ERR](state, payload) {
