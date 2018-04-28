@@ -1,4 +1,4 @@
-let SERVER = `192.168.1.102`;
+let SERVER = `localhost`;
 let SERVER_PORT = `3000`;
 const Constants = {
   api: ``
