@@ -9,3 +9,4 @@ export default {
     state = { tickets: state.tickets.push(payload) };
   }
 };
+1 + 1;
