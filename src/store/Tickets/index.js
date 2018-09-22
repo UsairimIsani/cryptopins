@@ -1,3 +1,4 @@
+// This file has been changed
 import state from "./state";
 import mutations from "./mutations";
 import actions from "./actions";
